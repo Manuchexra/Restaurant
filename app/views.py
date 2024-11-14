@@ -1,57 +1,71 @@
-# restaurant_payment/views.py
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from .models import PaymentMethod, Table, UserRole, User, Check, Transaction, Report
-from .serializers import (PaymentMethodSerializer, TableSerializer, UserRoleSerializer,
-                          UserSerializer, CheckSerializer, TransactionSerializer, ReportSerializer)
-from django.shortcuts import get_object_or_404
+# restaurant/views.py
+from rest_framework import viewsets, permissions
+from .models import (
+    PaymentMethod, Table, UserRole, User, Order, MenuItem, Check, 
+    Transaction, Report, Discount, Reservation, Feedback
+)
+from .serializers import (
+    PaymentMethodSerializer, TableSerializer, UserRoleSerializer, UserSerializer, 
+    OrderSerializer, MenuItemSerializer, CheckSerializer, TransactionSerializer, 
+    ReportSerializer, DiscountSerializer, ReservationSerializer, FeedbackSerializer
+)
 
-class PaymentMethodListCreateAPIView(APIView):
-    def get(self, request):
-        methods = PaymentMethod.objects.all()
-        serializer = PaymentMethodSerializer(methods, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+class PaymentMethodViewSet(viewsets.ModelViewSet):
+    queryset = PaymentMethod.objects.all()
+    serializer_class = PaymentMethodSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-    def post(self, request):
-        serializer = PaymentMethodSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class TableViewSet(viewsets.ModelViewSet):
+    queryset = Table.objects.all()
+    serializer_class = TableSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
+class UserRoleViewSet(viewsets.ModelViewSet):
+    queryset = UserRole.objects.all()
+    serializer_class = UserRoleSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-class TableListCreateAPIView(APIView):
-    def get(self, request):
-        tables = Table.objects.all()
-        serializer = TableSerializer(tables, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-    def post(self, request):
-        serializer = TableSerializer(data=request.data)
-        if serializer.is_valid():
-            table = serializer.save()
-            table.save()  # QR kod yaratish uchun `save` metodi chaqiriladi
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
+class MenuItemViewSet(viewsets.ModelViewSet):
+    queryset = MenuItem.objects.all()
+    serializer_class = MenuItemSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-class CheckDetailAPIView(APIView):
-    def get(self, request, check_id):
-        check = get_object_or_404(Check, id=check_id)
-        serializer = CheckSerializer(check)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+class CheckViewSet(viewsets.ModelViewSet):
+    queryset = Check.objects.all()
+    serializer_class = CheckSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-class TransactionCreateAPIView(APIView):
-    def post(self, request):
-        serializer = TransactionSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class TransactionViewSet(viewsets.ModelViewSet):
+    queryset = Transaction.objects.all()
+    serializer_class = TransactionSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-class ReportListAPIView(APIView):
-    def get(self, request):
-        reports = Report.objects.all()
-        serializer = ReportSerializer(reports, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+class ReportViewSet(viewsets.ModelViewSet):
+    queryset = Report.objects.all()
+    serializer_class = ReportSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class DiscountViewSet(viewsets.ModelViewSet):
+    queryset = Discount.objects.all()
+    serializer_class = DiscountSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class ReservationViewSet(viewsets.ModelViewSet):
+    queryset = Reservation.objects.all()
+    serializer_class = ReservationSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class FeedbackViewSet(viewsets.ModelViewSet):
+    queryset = Feedback.objects.all()
+    serializer_class = FeedbackSerializer
+    permission_classes = [permissions.IsAuthenticated]
