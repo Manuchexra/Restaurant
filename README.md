@@ -8,7 +8,7 @@ Fayllar saqlash: Media fayllar (masalan, QR kodlar) uchun Django media sozlamala
 Yaratilgan API’lar va Ularning Vazifalari
 Backend qismida jami 12 ta API endpoint yaratildi, ular quyidagi modellar uchun CRUD (Create, Read, Update, Delete) operatsiyalarini amalga oshiradi:
 
-PaymentMethod API
+**PaymentMethod API**
 
 Vazifasi: To‘lov usullarini boshqarish, to‘lov usullari haqida ma’lumot qo‘shish, yangilash va o‘chirish.
 Table API
@@ -46,5 +46,6 @@ Feedback API
 Vazifasi: Fikr-mulohazalarni boshqarish, foydalanuvchilarga restoran va xizmatlar haqida fikr bildirish imkonini beradi.
 Autentifikatsiya va Xavfsizlik
 Barcha API’lar JWT tokenlar orqali autentifikatsiya qilinadi. Foydalanuvchilar api/token/ endpoint orqali tizimga kirish uchun token olishadi va har bir so'rovda ushbu tokenni yuborishlari talab qilinadi.
-Umumiy Xulosa
+
+**Umumiy Xulosa**
 Joytop loyihasining backend qismi Django yordamida ishlab chiqilgan bo‘lib, 12 ta asosiy API endpointlari orqali foydalanuvchilar, buyurtmalar, menyu, rezervatsiyalar va boshqa asosiy funksiyalarni boshqarish imkonini beradi. Loyihaning backend qismi REST API’lar bilan to‘liq ta’minlangan va JWT autentifikatsiya bilan himoyalangan. Bu holatda ilova foydalanuvchilar uchun xavfsiz va oson boshqariladigan bo‘lib qoladi.
