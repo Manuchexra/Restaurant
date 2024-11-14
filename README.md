@@ -8,18 +8,23 @@
 
 
 ***Yaratilgan API’lar va Ularning Vazifalari***
+
 Backend qismida jami 12 ta API endpoint yaratildi, ular quyidagi modellar uchun CRUD (Create, Read, Update, Delete) operatsiyalarini amalga oshiradi:
 
 **PaymentMethod API**
+
 Vazifasi: To‘lov usullarini boshqarish, to‘lov usullari haqida ma’lumot qo‘shish, yangilash va o‘chirish.
 
 **Table API**
+
 Vazifasi: Restoran stol ma'lumotlarini boshqarish, QR kod yaratish va saqlash. Bu API orqali har bir stol uchun QR kod generatsiya qilinadi va saqlanadi.
 
 **UserRole API**
+
 Vazifasi: Foydalanuvchi rollarini boshqarish, har bir foydalanuvchining rolini belgilash.
 
 **User API**
+
 Vazifasi: Foydalanuvchilarni boshqarish, foydalanuvchilarni qo‘shish, yangilash va o‘chirish. Foydalanuvchilar uchun rollarni va to‘lov statuslarini belgilaydi.
 
 **Order API**
