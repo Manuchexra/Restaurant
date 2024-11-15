@@ -1,19 +1,4 @@
-**Backend qismi Django yordamida REST API orqali tuzilgan va JWT autentifikatsiya bilan himoyalangan.**
 
-**Asosiy Texnologiyalar**
-
-**Dasturlash tili**: Python (Django va Django REST Framework)
-
-**Ma’lumotlar bazasi**: PostgreSQL
-
-**Autentifikatsiya**: JWT tokenlar yordamida
-
-**Fayllar saqlash**: Media fayllar (masalan, QR kodlar) uchun Django media sozlamalari
-
-
-***Yaratilgan API’lar va Ularning Vazifalari***
-
-Backend qismida jami 12 ta API endpoint yaratildi, ular quyidagi modellar uchun CRUD (Create, Read, Update, Delete) operatsiyalarini amalga oshiradi:
 
 # Joytop API
 
@@ -21,7 +6,13 @@ Joytop API — restoranlar va xizmatlarni boshqarish uchun yaratilgan backend ti
 
 ---
 
+
+***Yaratilgan API’lar va Ularning Vazifalari***
+
+Backend qismida jami 12 ta API endpoint yaratildi, ular quyidagi modellar uchun CRUD (Create, Read, Update, Delete) operatsiyalarini amalga oshiradi:
+
 ## 📋 **Asosiy API Endpointlari**
+
 
 ### **1. Payment Methods (`/api/payment-methods/`)**
 To‘lov usullarini boshqarish:
@@ -239,14 +230,19 @@ Foydalanuvchilar fikr-mulohazalarini boshqarish:
 ---
 
 ## 🔧 **Texnologiyalar**
-- **Backend**: Django Rest Framework
-- **Ma’lumotlar Bazasi**: PostgreSQL
-- **Caching**: Redis
-- **Autentifikatsiya**: JWT
 
 ---
+**Backend qismi Django yordamida REST API orqali tuzilgan va JWT autentifikatsiya bilan himoyalangan.**
 
-Agar yana qo‘shimcha savollar bo‘lsa, [Issues](https://github.com/yourusername/joytop-api/issues) bo‘limiga murojaat qiling. 😊
+**Asosiy Texnologiyalar**
+
+**Dasturlash tili**: Python (Django va Django REST Framework)
+
+**Ma’lumotlar bazasi**: PostgreSQL
+
+**Autentifikatsiya**: JWT tokenlar yordamida
+
+**Fayllar saqlash**: Media fayllar (masalan, QR kodlar) uchun Django media sozlamalari
 
 
 **Umumiy Xulosa**
